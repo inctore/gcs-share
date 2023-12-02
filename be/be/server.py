@@ -1,6 +1,9 @@
 import click
+from starlette.responses import RedirectResponse, FileResponse
 import uvicorn
 from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
+
 
 app = FastAPI()
 
@@ -8,6 +11,21 @@ app = FastAPI()
 @app.get("/api/hello")
 def hello():
     return {"message": "Hello World"}
+
+
+@app.get("/vite.svg")
+def vite() -> FileResponse:
+    return FileResponse("static/vite.svg")
+
+
+@app.get("/assets/{path:path}")
+def assets(path: str) -> FileResponse:
+    return FileResponse(f"static/assets/{path}")
+
+
+@app.get("/{path:path}")
+async def index(path: str) -> FileResponse:
+    return FileResponse("static/index.html")
 
 
 @click.pass_context
