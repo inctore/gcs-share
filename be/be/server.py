@@ -1,8 +1,7 @@
 import click
-from starlette.responses import RedirectResponse, FileResponse
+from starlette.responses import FileResponse
 import uvicorn
 from fastapi import FastAPI
-from fastapi.staticfiles import StaticFiles
 
 
 app = FastAPI()
