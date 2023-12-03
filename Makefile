@@ -22,6 +22,7 @@ CLOUDRUN_TIMEOUT := 59m
 build-local: image-tag
 	@echo "Building local docker image"
 	docker build -t $(IMAGE_NAME):$(IMAGE_TAG) .
+	docker tag $(IMAGE_NAME):$(IMAGE_TAG) $(IMAGE_NAME):latest
 
 
 .PHONY: image-tag
