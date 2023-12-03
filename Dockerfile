@@ -52,4 +52,6 @@ COPY be /app/
 ARG SHORT_SHA
 RUN echo $SHORT_SHA > /commithash.txt
 
-ENTRYPOINT ["/bin/bash"]
+ENV PORT=8080
+
+ENTRYPOINT ["python", "-m", "be", "server", "--port", "${PORT}"]
