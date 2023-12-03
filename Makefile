@@ -21,7 +21,12 @@ CLOUDRUN_TIMEOUT := 59m
 .PHONY: run-local
 run-local:
 	@echo "Running local server"
-	docker run --rm --name=gcs-share -p 8080:8080 $(IMAGE_NAME):latest
+	docker run \
+		--rm \
+		--name=gcs-share \
+		-p 8080:8080 \
+		-e PORT=8080 \
+		$(IMAGE_NAME):latest
 
 
 .PHONY: build-local
