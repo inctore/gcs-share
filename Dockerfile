@@ -8,6 +8,8 @@ ENV LC_ALL C.UTF-8
 
 WORKDIR /app
 
-COPY fe /app/
-RUN npm ci && npm run build
+COPY fe/*.json /app/
+RUN npm ci
 
+COPY fe /app/
+RUN npm run build
