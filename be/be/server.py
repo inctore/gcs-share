@@ -36,4 +36,5 @@ def server(ctx: click.Context, port: int):
     uvicorn.run("be.server:app",
                 port=port,
                 log_level="debug" if debug else "info",
-                reload=debug)
+                reload=debug,
+                host="0.0.0.0")
