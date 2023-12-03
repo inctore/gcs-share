@@ -18,6 +18,12 @@ CLOUDRUN_MAX_INSTANCES := 1000
 CLOUDRUN_TIMEOUT := 59m
 
 
+.PHONY: run-local
+run-local:
+	@echo "Running local server"
+	docker run --rm -p 8080:8080 $(IMAGE_NAME):latest
+
+
 .PHONY: build-local
 build-local: image-tag
 	@echo "Building local docker image"

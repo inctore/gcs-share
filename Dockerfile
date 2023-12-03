@@ -54,4 +54,4 @@ RUN echo $SHORT_SHA > /commithash.txt
 
 ENV PORT=8080
 
-ENTRYPOINT ["python", "-m", "be", "server", "--port", "${PORT}"]
+ENTRYPOINT ["python", "-m", "be", "server"]
