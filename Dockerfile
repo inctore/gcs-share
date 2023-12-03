@@ -40,7 +40,9 @@ RUN poetry install --no-dev
 
 FROM ${PYTHON_IMAGE}
 
-RUN apt-get update && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && \
+    apt-get install -y curl && \
+    rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 
