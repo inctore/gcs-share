@@ -3,6 +3,8 @@ from starlette.responses import FileResponse
 import uvicorn
 from fastapi import FastAPI
 
+from .utils import get_port
+
 
 app = FastAPI()
 
@@ -28,7 +30,7 @@ async def index(path: str) -> FileResponse:
 
 
 @click.pass_context
-@click.option("--port", default=9345)
+@click.option("--port", default=get_port())
 def server(ctx: click.Context, port: int):
     debug = ctx.obj["debug"]
     uvicorn.run("be.server:app",
